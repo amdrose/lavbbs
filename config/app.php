@@ -67,7 +67,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'PRC',
 
     /*
     |--------------------------------------------------------------------------
@@ -80,7 +80,10 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => 'cn',
+    'faker_locale' => 'zh_CN',
+
+
 
     /*
     |--------------------------------------------------------------------------
@@ -106,7 +109,7 @@ return [
     |
     */
 
-    'faker_locale' => 'en_US',
+    #'faker_locale' => 'en_US',
 
     /*
     |--------------------------------------------------------------------------
@@ -174,6 +177,9 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+
+        #ide优化组件
+        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
 
     ],
 
