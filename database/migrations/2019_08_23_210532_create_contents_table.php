@@ -20,6 +20,7 @@ class CreateContentsTable extends Migration
             $table->string('title')->comment('标题');
             $table->text('content')->comment('文章内容');
             $table->dateTime('times')->comment('创建时间');
+            $table->timestamps();
         });
     }
 

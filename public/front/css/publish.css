@@ -33,7 +33,7 @@
 }
 input.publish {
 	float: left;
-	background:url(bg.png) 0 -0px;
+	background:url('../image/bg.png') 0 -0px;
 	display: block;
     height:30px;
     text-decoration:none;
@@ -45,7 +45,7 @@ input.publish {
 }
 input.reply {
 	float: left;
-	background:url(bg.png) 0 -90px;
+	background:url('../image/bg.png') 0 -90px;
 	display: block;
     height:30px;
     text-decoration:none;

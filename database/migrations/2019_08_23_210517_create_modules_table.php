@@ -17,6 +17,7 @@ class CreateModulesTable extends Migration
             $table->increments('id');
             $table->string('module_name')->comment('模块名字');
             $table->string('describe')->comment('描述');
+            $table->timestamps();
         });
     }
 

@@ -15,3 +15,17 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+#Route::get('index',function (){ return view('admin.index');});
+
+Route::get('/index','Admin\IndexController@showIndex');
+
+//老式写法
+//Route::group(['prefix'=>'front','namespace'=>'Front'],function (){
+//
+//});
+
+Route::namespace('Front')->prefix('front')->group(function (){
+    Route::get('index','IndexController@indexShow')->name('front.index');
+    Route::get('test','IndexController@showAllMou')->name('front.test');
+    Route::get('listpost','ListpostController@showPost')->name('front.listpost');
+});

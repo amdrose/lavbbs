@@ -18,6 +18,7 @@ class CreateUsersTable extends Migration
             $table->string('name')->nullable(false)->comment('用户名');
             $table->string('password')->nullable(false)->comment('密码');
             $table->text('headphoto')->comment('头像');
+            $table->timestamps();
         });
     }
 

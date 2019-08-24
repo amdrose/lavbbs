@@ -29,7 +29,7 @@ body {
 	margin:0 auto;
 }
 #position {
-	background:url(style_icon.png) 0px -60px no-repeat;
+	background:url('../image/style_icon.png') 0px -60px no-repeat;
 	text-indent:20px;
 }
 #position a {
@@ -94,7 +94,7 @@ body {
 	border:0px;
 }
 #header .serarch input.submit {
-	background:url(style_icon.png) 0px -593px;
+	background:url('../image/style_icon.png') 0px -593px;
     border: 0 none;
     cursor: pointer;
     float: right;
@@ -120,16 +120,16 @@ a.btn {
 	float:left;
 }
 a.publish {
-	background:url(bg.png) 0 0 no-repeat;
+	background:url('../image/bg.png') 0 0 no-repeat;
 }
 a.reply {
-	background:url(bg.png) 0 -90px no-repeat;
+	background:url('../image/bg.png') 0 -90px no-repeat;
 }
 .pages_wrap .pages {
 	float: right;
 }
 .pages a {
-    background:url(core_bg.png) #f8f8f8;
+    background:url('../image/core_bg.png') #f8f8f8;
     border-color: #c9c9c9 #bdbdbd #b0b0b0;
     border-image: none;
     border-radius: 3px;
