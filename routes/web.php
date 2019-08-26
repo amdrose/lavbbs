@@ -28,4 +28,8 @@ Route::namespace('Front')->prefix('front')->group(function (){
     Route::get('index','IndexController@indexShow')->name('front.index');
     Route::get('test','IndexController@showAllMou')->name('front.test');
     Route::get('listpost','ListpostController@showPost')->name('front.listpost');
+    Route::get('login','LoginController@login')->name('front.login');
+    Route::post('login','LoginController@userDeal')->name('front.login');
+    Route::get('public','PublicController@show')->name('front.public');
+    Route::post('public','PublicController@add')->name('front.public');
 });

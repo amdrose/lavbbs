@@ -178,8 +178,13 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+
+
         #ide优化组件
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
+
+        #验证码组件
+        Mews\Captcha\CaptchaServiceProvider::class,
 
     ],
 
@@ -229,6 +234,10 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+
+
+        #验证码
+        'Captcha' => Mews\Captcha\Facades\Captcha::class,
 
     ],
 

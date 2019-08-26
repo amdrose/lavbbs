@@ -73,16 +73,6 @@
 
         <div class="pages_wrap">
             {{$result2 ->appends(['id' => $getnum])->links()}}
-{{--            <a class="btn publish" href=""></a>--}}
-{{--            <div class="pages">--}}
-{{--                <a>« 上一页</a>--}}
-{{--                <a>1</a>--}}
-{{--                <span>2</span>--}}
-{{--                <a>3</a>--}}
-{{--                <a>4</a>--}}
-{{--                <a>...13</a>--}}
-{{--                <a>下一页 »</a>--}}
-{{--            </div>--}}
             <div style="clear:both;"></div>
         </div>
     </div>
