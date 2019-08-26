@@ -17,7 +17,6 @@ class LoginController extends Controller
     //用户登录处理
     public function userDeal(LoginRequest $request){
 
-
             // The blog post is valid, store in database...
         }
 

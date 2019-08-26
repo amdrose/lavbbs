@@ -47,7 +47,9 @@
         <label>用户名：<input type="text" name="user" /><span>*用户名含有禁用字符，请选择其他用户名</span></label>
         <label>密码：<input type="password" name="password" /><span>*用户名含有禁用字符，请选择其他用户名</span></label>
         <label>验证码：<input name="vcode" type="text"  /><span>*请输入下方验证码</span></label>
-        <img class="vcode" src="{{captcha_src()}}" />
+{{--        <img class="vcode" src="{{captcha_src()}}" />--}}
+{{--            点击图片刷新--}}
+            <img class="vcode" src="{{captcha_src()}}" onclick="this.src='{{captcha_src()}}?r='+Math.random();" alt="">
         <div style="clear:both;"></div>
         <input class="btn" type="submit" name="login" value="登陆" />
     </form>
