@@ -32,7 +32,7 @@
     <a>首页</a> &gt; <a>发布帖子</a>
 </div>
 <div id="publish">
-    <form method="post" action="{{route('Front.public')}}">
+    <form method="post" action="{{route('front.public')}}">
         @csrf
         <select name="module_id">
             <option selected>请选择一个类别</option>
