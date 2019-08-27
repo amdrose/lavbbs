@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -23,8 +22,13 @@
             </form>
         </div>
         <div class="login">
-					<a>登录</a>&nbsp;
-					<a>注册</a>
+            @if(auth('admin')->check())
+            <a>{{auth('admin')->user()->name}}</a>&nbsp;
+            <a href="{{route('front.loginout')}}" >注销</a>
+            @else
+            <a href="{{route('front.login')}}" >登陆</a>&nbsp;
+            <a href="{{route('front.loginout')}}" >注册</a>
+            @endif
         </div>
     </div>
 </div>

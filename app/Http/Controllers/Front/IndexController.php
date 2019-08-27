@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Front;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Module;
+use Auth;
 
 class IndexController extends Controller
 {
@@ -13,7 +14,6 @@ class IndexController extends Controller
         $mod = Module::all();
         return view('front.index',compact('mod'));
     }
-
 
 
 

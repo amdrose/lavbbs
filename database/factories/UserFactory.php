@@ -5,7 +5,7 @@ use Faker\Generator as Faker;
 $factory->define(App\Models\User::class, function (Faker $faker) {
     return [
         'name'=>$faker->name,
-        'password'=>$faker->md5,
+        'password'=>bcrypt('admin'),
         'headphoto'=>$faker->fileExtension
     ];
 });

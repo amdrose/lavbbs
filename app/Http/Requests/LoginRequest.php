@@ -27,13 +27,12 @@ class LoginRequest extends FormRequest
             'user' => 'required|alpha_num|between:1,10',
             'password' => 'required|between:1,16|alpha_num',
             'vcode'=> 'required|captcha'
-
         ];
     }
     public function messages()
     {
         return [
-            'user.requid' => '户名不能为空',
+            'user.requid' => '用户名不能为空',
             'user.alpha' => '只能是字符或者数字',
             'user.between' => '只能在1-10个字之间',
             'user.unique' => '用户名已存在',

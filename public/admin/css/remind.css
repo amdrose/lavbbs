@@ -35,14 +35,14 @@ a:hover {
 	vertical-align:middle;
 }
 .notice .ok {
-	background:url(small.png) -40px -20px no-repeat;
+	background:url('../image/small.png') -40px -20px no-repeat;
 }
 .notice .error {
-	background:url(small.png) -20px -40px no-repeat;
+	background:url('../image/small.png') -20px -40px no-repeat;
 }
 .notice .attention {
-	background:url(small.png) 0 -60px no-repeat;
+	background:url('../image/small.png') 0 -60px no-repeat;
 }
 .notice .ask {
-	background:url(small.png) -60px 0px no-repeat;
+	background:url('../image/small.png') -60px 0px no-repeat;
 }

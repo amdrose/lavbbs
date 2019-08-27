@@ -30,6 +30,12 @@ Route::namespace('Front')->prefix('front')->group(function (){
     Route::get('listpost','ListpostController@showPost')->name('front.listpost');
     Route::get('login','LoginController@login')->name('front.login');
     Route::post('login','LoginController@userDeal')->name('front.login');
+    Route::get('/prompt','LoginController@loginout')->name('front.loginout');
     Route::get('public','PublicController@show')->name('front.public');
     Route::post('public','PublicController@add')->name('front.public');
 });
+
+Route::get('/prompt','Inc\PromptController@showPrompt')->name('inc.prompt');
+
+Route::get('/home', 'HomeController@index')->name('home');
+
