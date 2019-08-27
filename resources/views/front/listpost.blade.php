@@ -22,8 +22,13 @@
             </form>
         </div>
         <div class="login">
-            <a>登录</a>&nbsp;
-            <a>注册</a>
+            @if(auth('admin')->check())
+                <a>{{auth('admin')->user()->name}}</a>&nbsp;
+                <a href="{{route('front.loginout')}}" >注销</a>
+            @else
+                <a href="{{route('front.login')}}" >登陆</a>&nbsp;
+                <a href="{{route('front.loginout')}}" >注册</a>
+            @endif
         </div>
     </div>
 </div>
@@ -40,6 +45,8 @@
                 总帖：<span>158061</span>
             </div>
         </div>
+        <HR style="FILTER: alpha(opacity=100,finishopacity=0,style=3)" width="100%" color=#987cb9 SIZE=2>
+        <a class="btn publish" href="{{route('front.public')}}"></a>
         <div style="clear:both;"></div>
         <ul class="postsList">
             @forelse($result2 as $title)

@@ -19,6 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('password')->nullable(false)->comment('密码');
             $table->text('headphoto')->comment('头像');
             $table->timestamps();
+            $table->rememberToken();
         });
     }
 
