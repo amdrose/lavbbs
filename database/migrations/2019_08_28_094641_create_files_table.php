@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateContentsTable extends Migration
+class CreateFilesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,11 @@ class CreateContentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('contents', function (Blueprint $table) {
+        Schema::create('files', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('module_id')->comment('模板id');
             $table->unsignedInteger('user_id')->comment('用户id');
-            $table->string('title')->comment('标题');
-            $table->text('content')->comment('文章内容');
+            $table->string('name',255)->comment('文件名');
+            $table->string('url')->comment('文件路径');
             $table->timestamps();
         });
     }
@@ -30,6 +29,7 @@ class CreateContentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('contents');
+        Schema::dropIfExists('files');
     }
 }
+

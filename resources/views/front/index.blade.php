@@ -7,6 +7,8 @@
     <meta name="description" content="" />
     <link rel="stylesheet" type="text/css" href="/front/css/public.css" />
     <link rel="stylesheet" type="text/css" href="/front/css/index.css" />
+    <link rel="stylesheet" type="text/css" href="/front/css/list.css" />
+
 </head>
 <body>
 <div class="header_wrap">
@@ -58,7 +60,18 @@
         <div style="clear:both;">
         </div>
     </div>
+    <div class="title">
+        软件区域
+    </div>
+    @forelse($fle as $value)
+       {{$value->name}}-->>><a href="{{route('front.down',array('name'=>$value->name))}}">下载</a>
+        <br>
+        <HR style="FILTER: alpha(opacity=100,finishopacity=0,style=3)"  width="100%" color=#987cb9 SIZE=0.5>
+    @empty
+        <h2>对不起，没有帖子</h2>
+    @endforelse
 </div>
+
 <div id="footer" class="auto">
     <div class="bottom">
         <a>lavbbs</a>

@@ -8,6 +8,5 @@ $factory->define(App\Models\Content::class, function (Faker $faker) {
         'user_id'=>$faker->randomDigitNotNull,
         'title'=>$faker->word,
         'content'=>$faker->text,
-        'times'=>$faker->dateTime
     ];
 });

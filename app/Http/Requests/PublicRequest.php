@@ -13,7 +13,7 @@ class PublicRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -36,4 +36,5 @@ class PublicRequest extends FormRequest
             'content.required' => '内容不能为空',
         ];
     }
+
 }

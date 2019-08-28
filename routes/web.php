@@ -33,6 +33,9 @@ Route::namespace('Front')->prefix('front')->group(function (){
     Route::get('/prompt','LoginController@loginout')->name('front.loginout');
     Route::get('public','PublicController@show')->name('front.public');
     Route::post('public','PublicController@add')->name('front.public');
+    Route::get('upload','FileController@showUpLoad')->name('front.showupload');
+    Route::post('upload','FileController@upload')->name('front.upload');
+    Route::get('down/{name}','DownfileController@down')->name('front.down');
 });
 
 Route::get('/prompt','Inc\PromptController@showPrompt')->name('inc.prompt');

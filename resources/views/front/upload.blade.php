@@ -34,38 +34,26 @@
 </div>
 <div style="margin-top:55px;"></div>
 <div id="position" class="auto">
-    <a href="{{route('front.index')}}">首页</a> &gt; <a>发布帖子</a>
+    <a href="{{route('front.index')}}">首页</a> &gt; <a>上传文件</a>
 </div>
-@if (count($errors) > 0)
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
-<div id="publish">
-    <form method="post" action="{{route('front.public')}}">
+<div id="publish" style="width: 50%;height:100px;border:1px solid #F00">
+{{--    <div class="panel-heading">上传文件</div>--}}
+    <form class="form-horizontal" method="POST" action="{{route('front.upload')}}" enctype="multipart/form-data">
         @csrf
-        <select name="module_id">
-            <option selected>请选择一个类别</option>
-            @foreach($mod as $value)
-            <option value="{{$value->id}}">{{$value->module_name}}</option>
-            @endforeach
-        </select>
-        <input class="title" placeholder="请输入标题" name="title" type="text" />
-        <textarea name="content" class="content"></textarea>
-        <input class="publish" type="submit" name="submit" value="" />
-        <div style="clear:both;"></div>
+{{--        <label for="file">选择文件</label>--}}
+{{--            <input type="text" id="updateFile" class="form-control batch-upload-text" placeholder="请选择文件" name="source"/>--}}
+             <input id="file" type="file" class="form-control" name="source" required><br>
+             <br>
+             <button type="submit" class="btn btn-primary">确定</button>
     </form>
+    <div style="clear:both;"></div>
 </div>
-
 <div id="footer" class="auto">
     <div class="bottom">
         <a>lavbbs</a>
     </div>
     <div class="copyright">Powered by lavbbs ©2019 lavbbs.com</div>
 </div>
+
 </body>
 </html>
