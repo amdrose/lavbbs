@@ -23,7 +23,7 @@
         </div>
         <div class="login">
             @if(auth('admin')->check())
-                <a>{{auth('admin')->user()->name}}</a>&nbsp;
+                <a href="{{route('front.user')}}">{{auth('admin')->user()->name}}</a>&nbsp;
                 <a href="{{route('front.loginout')}}" >注销</a>
             @else
                 <a href="{{route('front.login')}}" >登陆</a>&nbsp;

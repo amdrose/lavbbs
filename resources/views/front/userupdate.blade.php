@@ -38,51 +38,40 @@
 </div>
 <div style="margin-top:55px;"></div>
 <div id="main" class="auto">
-    <div id="left">
-        <ul class="postsList">
-            @forelse($content as $key)
-            <li>
-                <div class="smallPic">
-                    <img width="45" height="45" src="{{asset('front/image/photo.jpg')}}" />
+        <div id="publish">
+            <form method="post" action="{{route('front.public')}}">
+                <div style="font-size:15px">
+                    <span style="color:#488fcf"  >标题:</span>
                 </div>
-                <div class="subject">
-                    <div class="titleWrap"><h2><a target="_blank" href="">{{$key['title']}}</a></h2></div>
-                    <p>
-                        <a href="{{route('front.userupdate',array('contentid'=>$key->id))}}">编辑</a> <a href="">删除</a>
-                        发帖日期：{{$key->created_at}}&nbsp;&nbsp;&nbsp;&nbsp;
-                    </p>
+                <input class="title" placeholder="" name="title" type="text" value="{{$con->title}}"/>
+                <br>
+                <HR style="FILTER: alpha(opacity=100,finishopacity=0,style=3)" width="100%" color=#987cb9 SIZE=2>
+                <br>
+                <div style="font-size:15px">
+                    <span style="color:#488fcf"  >文章:</span>
                 </div>
-                <div class="count">
-                    <p>
-                        回复<br /><span>18</span>
-                    </p>
-                    <p>
-                        浏览<br /><span>18</span>
-                    </p>
-                </div>
+                <textarea style="width:100%; height:200px" name="content" placeholder="" class="content">{{$con->content}}</textarea>
+                <input style="align-content: center" class="publish" type="submit" name="submit" value="提交" />
                 <div style="clear:both;"></div>
-            </li>
-            @empty
-            <h3>对不起，你还没有帖子</h3>
-            @endforelse
-        </ul>
+            </form>
+        </div>
         <div class="pages">
 
         </div>
     </div>
-    <div id="right">
-        <div class="member_big">
-            <dl>
-                <dt>
-                    <img width="180" height="180" src="{{asset('front/image/photo.jpg')}}"/>
-                </dt>
-                <dd class="name">{{auth('admin')->user()->name}}</dd>
-                <dd>帖子总计：13</dd>
-                <dd>操作：<a target="_blank" href="">修改头像</a>
-            </dl>
-            <div style="clear:both;"></div>
-        </div>
-    </div>
+{{--    <div id="right">--}}
+{{--        <div class="member_big">--}}
+{{--            <dl>--}}
+{{--                <dt>--}}
+{{--                    <img width="180" height="180" src="{{asset('front/image/photo.jpg')}}"/>--}}
+{{--                </dt>--}}
+{{--                <dd class="name">{{auth('admin')->user()->name}}</dd>--}}
+{{--                <dd>帖子总计：13</dd>--}}
+{{--                <dd>操作：<a target="_blank" href="">修改头像</a>--}}
+{{--            </dl>--}}
+{{--            <div style="clear:both;"></div>--}}
+{{--        </div>--}}
+{{--    </div>--}}
     <div style="clear:both;"></div>
 </div>
 </div>

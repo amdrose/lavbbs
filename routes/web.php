@@ -38,7 +38,14 @@ Route::namespace('Front')->prefix('front')->group(function (){
     Route::get('down/{name}','DownfileController@down')->name('front.down');
     Route::get('content/{modid}/{contentid}','ContentController@showContent')->name('front.content');
     Route::get('user','UserController@showMes')->name('front.user');
+
+    //用户帖子相关操作
+    Route::get('userupdate/{contentid}','UserOpController@update')->name('front.userupdate');
+    Route::get('userdelete/{contentid}','UserOpController@delete')->name('front.userdelete');
 });
+
+
+
 Route::get('/prompt','Inc\PromptController@showPrompt')->name('inc.prompt');
 
 Route::get('/home', 'HomeController@index')->name('home');
