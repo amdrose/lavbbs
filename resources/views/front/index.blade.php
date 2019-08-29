@@ -51,7 +51,7 @@
     <div class="classList">
         @forelse($mod as $key)
             <div class="childBox new">
-                <h2><a href="{{route('front.listpost')}}?id={{$key->id}}">{{$key->module_name}}</a> <span>(今日38)</span></h2>
+                <h2><a href="{{route('front.listpost',array('id'=>$key->id))}}">{{$key->module_name}}</a> <span>(今日38)</span></h2>
                 帖子：124124<br />
             </div>
         @empty

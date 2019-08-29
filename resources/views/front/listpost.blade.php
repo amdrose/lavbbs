@@ -57,7 +57,7 @@
                     </a>
                 </div>
                 <div class="subject">
-                    <div class="titleWrap">&nbsp;&nbsp;<h2><a href="#">{{$title->title}}</a></h2></div>
+                    <div class="titleWrap">&nbsp;&nbsp;<h2><a href="{{route('front.content',array('modid'=>$getnum,'contentid'=>$title->id))}}">{{$title->title}}</a></h2></div>
                     <p>
                         楼主：张三&nbsp;2014-12-08&nbsp;&nbsp;&nbsp;&nbsp;最后回复：2014-12-08
                     </p>

@@ -36,8 +36,9 @@ Route::namespace('Front')->prefix('front')->group(function (){
     Route::get('upload','FileController@showUpLoad')->name('front.showupload');
     Route::post('upload','FileController@upload')->name('front.upload');
     Route::get('down/{name}','DownfileController@down')->name('front.down');
+    Route::get('content/{modid}/{contentid}','ContentController@showContent')->name('front.content');
+    Route::get('user','UserController@showMes')->name('front.user');
 });
-
 Route::get('/prompt','Inc\PromptController@showPrompt')->name('inc.prompt');
 
 Route::get('/home', 'HomeController@index')->name('home');
