@@ -39,7 +39,8 @@
 <div style="margin-top:55px;"></div>
 <div id="main" class="auto">
         <div id="publish">
-            <form method="post" action="{{route('front.public')}}">
+            <form method="post" action="{{route('front.userupdate',array('id'=>$con->id))}}">
+                @csrf
                 <div style="font-size:15px">
                     <span style="color:#488fcf"  >标题:</span>
                 </div>
@@ -50,8 +51,8 @@
                 <div style="font-size:15px">
                     <span style="color:#488fcf"  >文章:</span>
                 </div>
-                <textarea style="width:100%; height:200px" name="content" placeholder="" class="content">{{$con->content}}</textarea>
-                <input style="align-content: center" class="publish" type="submit" name="submit" value="提交" />
+                <textarea style="width: 80%; height:200px" name="cont" placeholder="" class="content">{{$con->content}}</textarea><br>
+                &nbsp;&nbsp; &nbsp;&nbsp;<input class="publish" type="submit" name="submit" value="提交" />
                 <div style="clear:both;"></div>
             </form>
         </div>

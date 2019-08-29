@@ -48,7 +48,7 @@
                 <div class="subject">
                     <div class="titleWrap"><h2><a target="_blank" href="">{{$key['title']}}</a></h2></div>
                     <p>
-                        <a href="{{route('front.userupdate',array('contentid'=>$key->id))}}">编辑</a> <a href="">删除</a>
+                        <a href="{{route('front.show',array('contentid'=>$key->id))}}">编辑</a> <a href="{{route('front.userdelete',array('contentid'=>$key->id))}}">删除</a>
                         发帖日期：{{$key->created_at}}&nbsp;&nbsp;&nbsp;&nbsp;
                     </p>
                 </div>

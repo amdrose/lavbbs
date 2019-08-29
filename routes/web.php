@@ -40,8 +40,9 @@ Route::namespace('Front')->prefix('front')->group(function (){
     Route::get('user','UserController@showMes')->name('front.user');
 
     //用户帖子相关操作
-    Route::get('userupdate/{contentid}','UserOpController@update')->name('front.userupdate');
+    Route::get('usershow/{contentid}','UserOpController@show')->name('front.show');
     Route::get('userdelete/{contentid}','UserOpController@delete')->name('front.userdelete');
+    Route::post('userupdate/{id}','UserOpController@update')->name('front.userupdate');
 });
 
 

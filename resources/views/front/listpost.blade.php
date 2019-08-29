@@ -49,6 +49,7 @@
         <a class="btn publish" href="{{route('front.public')}}"></a>
         <div style="clear:both;"></div>
         <ul class="postsList">
+
             @forelse($result2 as $title)
             <li>
                 <div class="smallPic">
@@ -58,9 +59,12 @@
                 </div>
                 <div class="subject">
                     <div class="titleWrap">&nbsp;&nbsp;<h2><a href="{{route('front.content',array('modid'=>$getnum,'contentid'=>$title->id))}}">{{$title->title}}</a></h2></div>
+                    @foreach($result3 as $key)
                     <p>
-                        楼主：张三&nbsp;2014-12-08&nbsp;&nbsp;&nbsp;&nbsp;最后回复：2014-12-08
+                        楼主：{{$key->user->name}}&nbsp;2014-12-08&nbsp;&nbsp;&nbsp;&nbsp;最后回复：2014-12-08
                     </p>
+                    @endforeach
+
                 </div>
                 <div class="count">
                     <p>
@@ -75,6 +79,7 @@
             @empty
                 <h2>对不起，没有帖子</h2>
             @endforelse
+
 
         </ul>
 
