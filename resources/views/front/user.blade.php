@@ -2,22 +2,20 @@
 <html lang="zh-CN">
 <head>
     <meta charset="utf-8" />
-    <title></title>
+    <title>个人信息</title>
     <meta name="keywords" content="" />
     <meta name="description" content="" />
     <link rel="stylesheet" type="text/css" href="/front/css/public.css" />
     <link rel="stylesheet" type="text/css" href="/front/css/index.css" />
     <link rel="stylesheet" type="text/css" href="/front/css/list.css" />
     <link rel="stylesheet" type="text/css" href="/front/css/member.css" />
-
-
 </head>
 <body>
 <div class="header_wrap">
     <div id="header" class="auto">
         <div class="logo">lavbbs</div>
         <div class="nav">
-            <a class="hover">首页</a>
+            <a class="hover" href="{{route('front.index')}}">首页</a>
         </div>
         <div class="serarch">
             <form>
@@ -37,6 +35,9 @@
     </div>
 </div>
 <div style="margin-top:55px;"></div>
+<div id="position" class="auto">
+    <a href="{{route('front.index')}}">首页</a> &gt; <a>个人信息</a>
+</div>
 <div id="main" class="auto">
     <div id="left">
         <ul class="postsList">
@@ -46,7 +47,7 @@
                     <img width="45" height="45" src="{{asset('front/image/photo.jpg')}}" />
                 </div>
                 <div class="subject">
-                    <div class="titleWrap"><h2><a target="_blank" href="">{{$key['title']}}</a></h2></div>
+                    <div class="titleWrap"><h2><a href="#">{{$key['title']}}</a></h2></div>
                     <p>
                         <a href="{{route('front.show',array('contentid'=>$key->id))}}">编辑</a> <a href="{{route('front.userdelete',array('contentid'=>$key->id))}}">删除</a>
                         发帖日期：{{$key->created_at}}&nbsp;&nbsp;&nbsp;&nbsp;
@@ -74,11 +75,15 @@
         <div class="member_big">
             <dl>
                 <dt>
-                    <img width="180" height="180" src="{{asset('front/image/photo.jpg')}}"/>
+                    @if($userpoto==null)
+                        <img width="180" height="180" src="{{asset('front/image/photo.jpg')}}/>
+                    @else
+                        <img width="180" height="180" src="{{asset($userpoto)}}"/>
+                    @endif
                 </dt>
                 <dd class="name">{{auth('admin')->user()->name}}</dd>
                 <dd>帖子总计：13</dd>
-                <dd>操作：<a target="_blank" href="">修改头像</a>
+                <dd>操作：<a target="_blank" href="{{route('front.headport')}}">修改头像</a>
             </dl>
             <div style="clear:both;"></div>
         </div>

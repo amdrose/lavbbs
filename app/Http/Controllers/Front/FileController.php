@@ -8,7 +8,6 @@ use Illuminate\Support\Facades\Storage;
 
 use App\Models\File;
 
-
 class FileController extends Controller
 {
     //
@@ -23,7 +22,7 @@ class FileController extends Controller
             $path = $upfile->getRealPath();
             $reapath = "/strong/app/public/".$realname;
             $user_id = auth('admin')->user()->id;
-            $stat = Storage::disk('public')->put($realname,file_get_contents($path));
+            $stat = Storage::disk('file')->put($realname,file_get_contents($path));
             $mod = new File();
             $mod->name = $realname;
             $mod->url = $reapath;

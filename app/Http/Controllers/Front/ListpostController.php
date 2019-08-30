@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Module;
 use App\Models\Content;
 use App\Models\User;
+use Illuminate\Support\Facades\DB;
 
 class ListpostController extends Controller
 {
@@ -19,9 +20,8 @@ class ListpostController extends Controller
         $getnum = request()->id;
         $result1 = Module::where('id','=',$getnum)->first();
         $modulename = $result1->module_name;
-        $result3 = Content::where('module_id','=',$getnum)->get();
-
         $result2 = Content::where('module_id','=',$getnum)->paginate(5);
+        $result3 = DB::table('contents')->join('users','contents.user_id','=','users.id')->where('module_id','=',$getnum)->get();
         return view('front.listpost',compact('mod','result2','getnum','modulename','result1','result3'));
     }
 }

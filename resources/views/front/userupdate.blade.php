@@ -9,8 +9,6 @@
     <link rel="stylesheet" type="text/css" href="/front/css/index.css" />
     <link rel="stylesheet" type="text/css" href="/front/css/list.css" />
     <link rel="stylesheet" type="text/css" href="/front/css/member.css" />
-
-
 </head>
 <body>
 <div class="header_wrap">

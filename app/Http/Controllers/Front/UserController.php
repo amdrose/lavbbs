@@ -10,9 +10,16 @@ use App\Models\Content;
 class UserController extends Controller
 {
     public function showMes(){
-        $username = auth('admin')->user()->name;
-        $userid = User::where('name','=',$username)->first();
-        $content = Content::where('user_id','=',$userid->id)->get();
-        return view('front.user',compact('content'));
+        if(auth('admin')->check()){
+            $username = auth('admin')->user()->name;
+            $userid = User::where('name','=',$username)->first();
+            $content = Content::where('user_id','=',$userid->id)->get();
+            $userpoto = $userid->headphoto;
+            return view('front.user',compact('content','userpoto'));
+        }
+        else{
+            return redirect()->route('front.index');
+        }
+
     }
 }

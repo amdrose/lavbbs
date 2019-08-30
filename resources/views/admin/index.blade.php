@@ -109,6 +109,7 @@
             </td>
         </tr>
     </table>
+    <img src="{{ asset('images/th.jpg')}}" alt="">
 </div>
 </body>
 </html>

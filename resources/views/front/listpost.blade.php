@@ -50,7 +50,7 @@
         <div style="clear:both;"></div>
         <ul class="postsList">
 
-            @forelse($result2 as $title)
+            @forelse($result3 as $value)
             <li>
                 <div class="smallPic">
                     <a href="#">
@@ -58,12 +58,10 @@
                     </a>
                 </div>
                 <div class="subject">
-                    <div class="titleWrap">&nbsp;&nbsp;<h2><a href="{{route('front.content',array('modid'=>$getnum,'contentid'=>$title->id))}}">{{$title->title}}</a></h2></div>
-                    @foreach($result3 as $key)
+                    <div class="titleWrap">&nbsp;&nbsp;<h2><a href="{{route('front.content',array('modid'=>$getnum,'contentid'=>$value->id,'username'=>$value->name,'created_at'=>$value->created_at))}}">{{$value->title}}</a></h2></div>
                     <p>
-                        楼主：{{$key->user->name}}&nbsp;2014-12-08&nbsp;&nbsp;&nbsp;&nbsp;最后回复：2014-12-08
+                        贴主：{{$value->name}}&nbsp;{{$value->created_at}}&nbsp;&nbsp;&nbsp;&nbsp;{{-- 最后回复：2014-12-08 --}}
                     </p>
-                    @endforeach
 
                 </div>
                 <div class="count">

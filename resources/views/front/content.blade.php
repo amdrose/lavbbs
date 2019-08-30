@@ -46,12 +46,10 @@
     <div class="wrapContent">
         <div class="left">
             <div class="face">
-                <a target="_blank" href="">
-                    <img width=120 height=120 src="{{asset('front/image/photo.jpg')}}" />
-                </a>
+                        <img width="150" height="150" src="{{asset($userpoto)}}"/>
             </div>
             <div class="name">
-                <a href="">楼主名称</a>
+                <a href="">{{$username}}</a>
             </div>
         </div>
         <div class="right">
@@ -61,11 +59,11 @@
                 <div style="clear:both;"></div>
             </div>
             <div class="pubdate">
-                <span class="date">发布于：时间 </span>
+                <span class="date">发布于:&nbsp{{$created_at}} </span>
                 <span class="floor" style="color:red;font-size:14px;font-weight:bold;">楼主</span>
             </div>
             <div class="content">
-                {{$cont->title}}
+                {{$cont->content}}
             </div>
         </div>
 {{--        <a class="btn reply" href=""回复页面跳转 target="_blank"></a>--}}
