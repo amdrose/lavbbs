@@ -31,7 +31,7 @@ Route::namespace('Front')->prefix('front')->group(function (){
     //文件下载
     Route::get('down/{name}','DownfileController@down')->name('front.down');
     //帖子内容显示
-    Route::get('content/{modid}/{contentid}/{username}/{created_at}','ContentController@showContent')->name('front.content');
+    Route::get('content/{modid}/{contenttitle}/{username}/{created_at}','ContentController@showContent')->name('front.content');
     //用户个人页面展示
     Route::get('user','UserController@showMes')->name('front.user');
     //用户帖子显示

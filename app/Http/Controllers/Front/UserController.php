@@ -12,9 +12,14 @@ class UserController extends Controller
     public function showMes(){
         if(auth('admin')->check()){
             $username = auth('admin')->user()->name;
-            $userid = User::where('name','=',$username)->first();
-            $content = Content::where('user_id','=',$userid->id)->get();
-            $userpoto = $userid->headphoto;
+            $user = User::where('name','=',$username)->first();
+            $content = Content::where('user_id','=',$user->id)->get();
+            if($user->headphoto==null){
+                $userpoto ='front/image/photo.jpg';
+            }
+            else{
+                $userpoto = $user->headphoto;
+            }
             return view('front.user',compact('content','userpoto'));
         }
         else{

@@ -75,11 +75,7 @@
         <div class="member_big">
             <dl>
                 <dt>
-                    @if($userpoto==null)
-                        <img width="180" height="180" src="{{asset('front/image/photo.jpg')}}/>
-                    @else
                         <img width="180" height="180" src="{{asset($userpoto)}}"/>
-                    @endif
                 </dt>
                 <dd class="name">{{auth('admin')->user()->name}}</dd>
                 <dd>帖子总计：13</dd>

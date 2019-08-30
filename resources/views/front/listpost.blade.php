@@ -58,7 +58,7 @@
                     </a>
                 </div>
                 <div class="subject">
-                    <div class="titleWrap">&nbsp;&nbsp;<h2><a href="{{route('front.content',array('modid'=>$getnum,'contentid'=>$value->id,'username'=>$value->name,'created_at'=>$value->created_at))}}">{{$value->title}}</a></h2></div>
+                    <div class="titleWrap">&nbsp;&nbsp;<h2><a href="{{route('front.content',array('modid'=>$getnum,'contenttitle'=>$value->title,'username'=>$value->name,'created_at'=>$value->created_at))}}">{{$value->title}}</a></h2></div>
                     <p>
                         贴主：{{$value->name}}&nbsp;{{$value->created_at}}&nbsp;&nbsp;&nbsp;&nbsp;{{-- 最后回复：2014-12-08 --}}
                     </p>
@@ -82,7 +82,7 @@
         </ul>
 
         <div class="pages_wrap">
-            {{$result2 ->appends(['id' => $getnum])->links()}}
+            {{$result3 ->appends(['id' => $getnum])->links()}}
             <div style="clear:both;"></div>
         </div>
     </div>

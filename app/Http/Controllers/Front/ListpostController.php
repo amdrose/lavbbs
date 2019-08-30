@@ -20,8 +20,11 @@ class ListpostController extends Controller
         $getnum = request()->id;
         $result1 = Module::where('id','=',$getnum)->first();
         $modulename = $result1->module_name;
-        $result2 = Content::where('module_id','=',$getnum)->paginate(5);
-        $result3 = DB::table('contents')->join('users','contents.user_id','=','users.id')->where('module_id','=',$getnum)->get();
-        return view('front.listpost',compact('mod','result2','getnum','modulename','result1','result3'));
+
+        $result3 = DB::table('contents')->join('users','contents.user_id','=','users.id')->where('module_id','=',$getnum)->paginate(5);
+          //  $result2 = $result3->paginate(5);
+//        $result2 = Content::where('id','=',$result3->id)->paginate(5);
+        //return view('front.listpost',compact('mod','result2','getnum','modulename','result1','result3'));
+        return view('front.listpost',compact('mod','getnum','modulename','result1','result3'));
     }
 }
