@@ -75,8 +75,6 @@
 </div>
 </div>
 
-
-
 <div id="footer" class="auto">
     <div class="bottom">
         <a>lavbbs</a>

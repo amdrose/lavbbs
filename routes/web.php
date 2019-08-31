@@ -43,6 +43,10 @@ Route::namespace('Front')->prefix('front')->group(function (){
     //用户头像修改
     Route::get('headport','HeadportController@show')->name('front.headport');
     Route::post('headport','HeadportController@headdeal')->name('front.headport');
+
+    //用户注册页
+    Route::get('regist','RegistController@regist')->name('front.regist');
+    Route::post('regist','RegistController@registdeal')->name('front.regist');
 });
 
 
