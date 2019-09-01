@@ -18,13 +18,10 @@ class ListpostController extends Controller
         $mod = Module::all();
         //获取到页面提交的模板id
         $getnum = request()->id;
+        $count = Content::where('module_id','=',$getnum)->count();
         $result1 = Module::where('id','=',$getnum)->first();
         $modulename = $result1->module_name;
-
         $result3 = DB::table('contents')->join('users','contents.user_id','=','users.id')->where('module_id','=',$getnum)->paginate(5);
-          //  $result2 = $result3->paginate(5);
-//        $result2 = Content::where('id','=',$result3->id)->paginate(5);
-        //return view('front.listpost',compact('mod','result2','getnum','modulename','result1','result3'));
-        return view('front.listpost',compact('mod','getnum','modulename','result1','result3'));
+        return view('front.listpost',compact('mod','getnum','modulename','result1','result3','count'));
     }
 }

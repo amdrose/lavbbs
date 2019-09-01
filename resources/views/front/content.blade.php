@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
     <meta charset="utf-8" />
-    <title></title>
+    <title>帖子详情页</title>
     <meta name="keywords" content="" />
     <meta name="description" content="" />
     <link rel="stylesheet" type="text/css" href="/front/css/public.css" />
@@ -46,7 +46,7 @@
     <div class="wrapContent">
         <div class="left">
             <div class="face">
-                        <img width="150" height="150" src="{{asset($userpoto)}}"/>
+                <img width="150" height="150" src="{{asset($userpoto)}}"/>
             </div>
             <div class="name">
                 <a href="">{{$username}}</a>
@@ -55,7 +55,6 @@
         <div class="right">
             <div class="title">
                 <h2>{{$cont->title}}</h2>
-                <span>阅读：30&nbsp;|&nbsp;回复：20</span>
                 <div style="clear:both;"></div>
             </div>
             <div class="pubdate">
@@ -66,44 +65,47 @@
                 {{$cont->content}}
             </div>
         </div>
-{{--        <a class="btn reply" href=""回复页面跳转 target="_blank"></a>--}}
+        @if(auth('admin')->check())
+            <a class="btn reply" href="{{route('front.comment',array('user_id'=>auth('admin')->user()->id,'content_id'=>$cont->id))}}"回复页面跳转 target="_blank"></a>
+        @endif
         <div style="clear:both;"></div>
     </div>
-{{--    <div class="wrapContent">--}}
-{{--        <div class="left">--}}
-{{--            <div class="face">--}}
-{{--                <a target="_blank" href="">--}}
-{{--                    <img width=120 height=120 src="{{asset('front/image/photo.jpg')}}")>--}}
-{{--                </a>--}}
-{{--            </div>--}}
-{{--            <div class="name">--}}
-{{--                <a href="">回复人姓名</a>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--        <div class="right">--}}
-{{--            <div class="pubdate">--}}
-{{--                <span class="date">回复时间：</span>--}}
-{{--                <span class="floor">目前所处楼&nbsp;|&nbsp;<a target="_blank" href="">跳转引用</a></span>--}}
-{{--            </div>--}}
-{{--            <div class="content">--}}
-{{--                <div class="quote">--}}
-{{--                    <h2>引用 （用户名称）楼（楼主） 发表的: </h2>--}}
-{{--                    文章标题--}}
-{{--                </div>--}}
-{{--                回复内容--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--        <div style="clear:both;"></div>--}}
-{{--    </div>--}}
-{{--    <div class="wrap1">--}}
-{{--        <div class="pages">--}}
-{{--            输出内容--}}
-{{--        </div>--}}
-{{--        <a class="btn reply" href=""回复页面跳转 target="_blank"></a>--}}
-{{--        <div style="clear:both;"></div>--}}
-{{--    </div>--}}
-</div>
+    <br>
+    <h1>评论</h1>
+    <HR style="FILTER: alpha(opacity=100,finishopacity=0,style=3)" width="100%" color=#987cb9 SIZE=2>
 
+    <div class="wrapContent">
+        @forelse($result as $key)
+            @if(!$key->message==null)
+        <div class="left">
+            <div class="face">
+                @if($key->headphoto==null)
+                    <img width="150" height="150" src="{{asset('front/image/photo.jpg')}}"/>
+                @else
+                    <img width="150" height="150" src="{{asset($key->headphoto)}}"/>
+                @endif
+            </div>
+            <div class="name">
+                <a href="">{{$key->name}}</a>
+            </div>
+        </div>
+        <div class="right">
+            <div class="pubdate">
+                <span class="date">发布于:&nbsp{{$key->created_at}} </span>
+                <span class="floor" style="color:red;font-size:14px;font-weight:bold;">1#</span>
+            </div>
+            <div class="content">
+                {{$key->message}}
+            </div>
+        </div>
+            @endif
+        @empty
+            <h1>目前还没有评论</h1>
+
+        @endforelse
+    </div>
+    <div style="clear:both;"></div>
+</div>
 
 <div id="footer" class="auto">
     <div class="bottom">

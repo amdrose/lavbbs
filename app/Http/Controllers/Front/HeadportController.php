@@ -20,16 +20,19 @@ class HeadportController extends Controller
             $reapath = $headport->getRealPath();
             $savename = '/uploads/'.$reaname;
             $stat = Storage::disk('public')->put($reaname,file_get_contents($reapath));
-           if($stat){
+           if($stat) {
                $id = auth('admin')->user()->id;
                $user = User::find($id);
-               $user->headphoto=$savename;
+               $user->headphoto = $savename;
                $user->update();
-               if($user){echo "上传成功";}
-               else{echo "上传失败";}
+               if ($user) {
+                   return redirect()->route('inc.prompt', ['notic' => 'ok', 'message' => '修改成功', 'tiaozhuan' => 'front.user']);
+               } else {
+                   return redirect()->route('inc.prompt', ['notic' => 'error', 'message' => '修改失败', 'tiaozhuan' => 'front.headport']);
+               }
            }
            else{
-               echo "上传失败";
+               return redirect()->route('inc.prompt', ['notic' => 'error', 'message' => '修改失败', 'tiaozhuan' => 'front.headport']);
            }
         }
 

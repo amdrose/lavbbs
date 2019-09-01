@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
     <meta charset="utf-8" />
-    <title></title>
+    <title>帖子发布页</title>
     <meta name="keywords" content="" />
     <meta name="description" content="" />
     <link rel="stylesheet" type="text/css" href="/front/css/public.css" />
@@ -27,7 +27,7 @@
                 <a href="{{route('front.loginout')}}" >注销</a>
             @else
                 <a href="{{route('front.login')}}" >登陆</a>&nbsp;
-                <a href="{{route('front.loginout')}}" >注册</a>
+                <a href="{{route('front.regist')}}" >注册</a>
             @endif
         </div>
     </div>

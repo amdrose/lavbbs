@@ -8,8 +8,14 @@ use App\Http\Controllers\Controller;
 class PromptController extends Controller
 {
     //
-    public function showPrompt(){
+    public function showPrompt(Request $request){
         //传入参数
-        return view('inc.remind');
+        //提示的图片
+        $notic = $request->notic;
+        //现实的信息
+        $message = $request->message;
+        //跳转路由
+        $tiaozhuan = $request->tiaozhuan;
+        return view('inc.remind',compact('notic','message','tiaozhuan'));
     }
 }

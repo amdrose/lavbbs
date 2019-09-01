@@ -24,7 +24,7 @@ class RegistRequest extends FormRequest
     public function rules()
     {
         return [
-            'user'=>'required|between:1,20|alpha_num',
+            'user'=>'required|between:1,20|alpha_num|unique:users,name',
             'password'=>'required|between:1,16|alpha_num',
             'password_confirmation'=>'required|between:1,16|alpha_num|same:password',
             'vcode'=>'required|captcha',

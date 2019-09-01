@@ -13,7 +13,7 @@
     <div id="header" class="auto">
         <div class="logo">lavbbs</div>
         <div class="nav">
-            <a class="hover">首页</a>
+            <a class="hover" href="{{route('front.index')}}">首页</a>
         </div>
         <div class="serarch">
             <form>
@@ -22,7 +22,7 @@
             </form>
         </div>
         <div class="login">
-            <a>登录</a>&nbsp;
+            <a href="{{route('front.login')}}">登录</a>&nbsp;
             <a>注册</a>
         </div>
     </div>

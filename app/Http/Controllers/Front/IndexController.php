@@ -17,7 +17,6 @@ class IndexController extends Controller
         $mod = Module::all();
         //获取文件对象
         $fle = File::all();
-
         return view('front.index',compact('mod','fle'));
     }
 

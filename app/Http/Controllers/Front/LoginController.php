@@ -26,17 +26,17 @@ class LoginController extends Controller
 //        dd($request->only('user','password'));
 //           $user = auth('admin')->attempt($request->only('user','password'));
            if($user){
-               return redirect()->route('front.index');
+               return redirect()->route('inc.prompt', ['notic' => 'ok', 'message' => '登陆成功！', 'tiaozhuan' => 'front.index']);
            }else
            {
-               return redirect('/prompt');
+               return redirect()->route('inc.prompt', ['notic' => 'error', 'message' => '登陆失败，请重试！', 'tiaozhuan' => 'front.login']);
            }
             // The blog post is valid, store in database...
         }
         //注销处理
         public function loginout(){
             auth('admin')->logout();
-            return redirect()->back();
+            return redirect()->route('inc.prompt', ['notic' => 'ok', 'message' => '注销成功！', 'tiaozhuan' => 'front.index']);
         }
 
 

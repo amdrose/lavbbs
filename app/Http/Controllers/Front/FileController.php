@@ -29,10 +29,10 @@ class FileController extends Controller
             $mod->user_id = $user_id;
             $stats = $mod->save();
             if($stat && $stats){
-                return "上传成功";
+                return redirect()->route('inc.prompt',['notic'=>'ok','message'=>'上传成功','tiaozhuan'=>'front.index']);
             }
             else{
-                return "上传失败";
+                return redirect()->route('inc.prompt',['notic'=>'error','message'=>'上传失败,请重试','tiaozhuan'=>'front.upload']);
             }
 
         }

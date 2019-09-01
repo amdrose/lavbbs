@@ -18,7 +18,8 @@
             <a class="hover">首页</a>
         </div>
         <div class="serarch">
-            <form>
+            <form method="post" action="{{route('front.searach')}}">
+                @csrf
                 <input class="keyword" type="text" name="keyword" placeholder="搜索其实很简单" />
                 <input class="submit" type="submit" name="submit" value="" />
             </form>
@@ -29,7 +30,7 @@
             <a href="{{route('front.loginout')}}" >注销</a>
             @else
             <a href="{{route('front.login')}}" >登陆</a>&nbsp;
-            <a href="{{route('front.loginout')}}" >注册</a>
+            <a href="{{route('front.regist')}}" >注册</a>
             @endif
         </div>
     </div>
@@ -47,12 +48,11 @@
     <div class="title">
         板块分类
     </div>
-
     <div class="classList">
         @forelse($mod as $key)
             <div class="childBox new">
-                <h2><a href="{{route('front.listpost',array('id'=>$key->id))}}">{{$key->module_name}}</a> <span>(今日38)</span></h2>
-                帖子：124124<br />
+                <br>
+                <h2><a href="{{route('front.listpost',array('id'=>$key->id))}}">{{$key->module_name}}</a> <span></span></h2>
             </div>
         @empty
             <div style="padding:10px 0;">暂无分类</div>

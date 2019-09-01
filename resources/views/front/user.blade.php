@@ -18,7 +18,8 @@
             <a class="hover" href="{{route('front.index')}}">首页</a>
         </div>
         <div class="serarch">
-            <form>
+            <form method="post" action="{{route('front.searach')}}">
+                @csrf
                 <input class="keyword" type="text" name="keyword" placeholder="搜索其实很简单" />
                 <input class="submit" type="submit" name="submit" value="" />
             </form>
@@ -29,7 +30,7 @@
                 <a href="{{route('front.loginout')}}" >注销</a>
             @else
                 <a href="{{route('front.login')}}" >登陆</a>&nbsp;
-                <a href="{{route('front.loginout')}}" >注册</a>
+                <a href="{{route('front.regist')}}" >注册</a>
             @endif
         </div>
     </div>

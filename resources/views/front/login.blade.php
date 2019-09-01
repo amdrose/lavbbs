@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
     <meta charset="utf-8" />
-    <title></title>
+    <title>登陆界面</title>
     <meta name="keywords" content="" />
     <meta name="description" content="" />
     <link rel="stylesheet" type="text/css" href="/front/css/public.css" />
@@ -13,9 +13,7 @@
     <div id="header" class="auto">
         <div class="logo">lavbbs</div>
         <div class="nav">
-            <a class="hover">首页</a>
-            <a>新帖</a>
-            <a>话题</a>
+            <a class="hover" href="{{route('front.index')}}">首页</a>
         </div>
         <div class="serarch">
             <form>

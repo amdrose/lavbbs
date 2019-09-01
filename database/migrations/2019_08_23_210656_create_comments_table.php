@@ -18,7 +18,6 @@ class CreateCommentsTable extends Migration
             $table->unsignedInteger('content_id')->comment('帖子id');
             $table->unsignedInteger('user_id')->comment('用户id');
             $table->text('message')->comment('回复内容');
-            $table->dateTime('time')->comment('评论时间');
             $table->timestamps();
         });
     }

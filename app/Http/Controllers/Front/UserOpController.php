@@ -27,18 +27,15 @@ class UserOpController extends Controller
        ];
        $stat = Content::where('id',$id)->update($date);
        if($stat>0){
-           return redirect()->route('front.user');
+           return redirect()->route('inc.prompt', ['notic' => 'ok', 'message' => '修改成功！', 'tiaozhuan' => 'front.user']);
        }
        else{
-           echo "修改失败";
-           return redirect()->back();
+           return redirect()->route('inc.prompt', ['notic' => 'error', 'message' => '修改失败,请重试！', 'tiaozhuan' => 'front.userupdate']);
        }
     }
 
-
-
     public function delete($contentid){
         $stat = Content::destroy($contentid);
-        return redirect()->route('front.user');
+        return redirect()->route('inc.prompt', ['notic' => 'ok', 'message' => '删除成功！', 'tiaozhuan' => 'front.user']);
     }
 }

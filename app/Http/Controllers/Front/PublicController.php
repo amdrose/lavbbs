@@ -31,10 +31,10 @@ class PublicController extends Controller
         $mod->content = $conntent;
         $status = $mod->save();
         if($status){
-            return redirect()->back()->with('mes','添加成功');
+            return redirect()->route('inc.prompt', ['notic' => 'ok', 'message' => '添加成功！', 'tiaozhuan' => 'front.index']);
         }
         else{
-            return redirect()->back()->with('mes','添加失败');
+            return redirect()->route('inc.prompt', ['notic' => 'error', 'message' => '添加失败，请重试！', 'tiaozhuan' => 'front.public']);
         }
 //        create方法
 //        $data = [

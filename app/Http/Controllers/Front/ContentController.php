@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Module;
 use App\Models\Content;
+use DB;
 
 class ContentController extends Controller
 {
@@ -24,8 +25,11 @@ class ContentController extends Controller
         else{
             $userpoto = $user->headphoto;
         }
-
-
-        return view('front.content',compact('mod','cont','username','created_at','userpoto'));
+        $result = DB::table('users')
+            ->leftJoin('contents', 'users.id', 'contents.user_id')
+            ->leftJoin('comments', 'contents.id', 'comments.content_id')
+            ->where('contents.id','=',$cont->id)
+            ->orWhere('comments.content_id','=',$cont->id)->get();
+        return view('front.content',compact('mod','cont','username','created_at','userpoto','result'));
     }
 }

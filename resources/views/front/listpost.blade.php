@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
     <meta charset="utf-8" />
-    <title></title>
+    <title>帖子列表</title>
     <meta name="keywords" content="" />
     <meta name="description" content="" />
     <link rel="stylesheet" type="text/css" href="/front/css/public.css" />
@@ -16,7 +16,8 @@
             <a class="hover" href="{{route('front.index')}}">首页</a>
         </div>
         <div class="serarch">
-            <form>
+            <form method="post" action="{{route('front.searach')}}">
+                @csrf
                 <input class="keyword" type="text" name="keyword" placeholder="搜索其实很简单" />
                 <input class="submit" type="submit" name="submit" value="" />
             </form>
@@ -41,12 +42,14 @@
         <div class="box_wrap">
             <h3>{{$modulename}}</h3>
             <div class="num">
-                今日：<span>7</span>&nbsp;&nbsp;&nbsp;
-                总帖：<span>158061</span>
+                总帖：<span>{{$count}}</span>
             </div>
         </div>
         <HR style="FILTER: alpha(opacity=100,finishopacity=0,style=3)" width="100%" color=#987cb9 SIZE=2>
+        @if(auth('admin')->check())
         <a class="btn publish" href="{{route('front.public')}}"></a>
+
+    @endif
         <div style="clear:both;"></div>
         <ul class="postsList">
 
@@ -60,18 +63,18 @@
                 <div class="subject">
                     <div class="titleWrap">&nbsp;&nbsp;<h2><a href="{{route('front.content',array('modid'=>$getnum,'contenttitle'=>$value->title,'username'=>$value->name,'created_at'=>$value->created_at))}}">{{$value->title}}</a></h2></div>
                     <p>
-                        贴主：{{$value->name}}&nbsp;{{$value->created_at}}&nbsp;&nbsp;&nbsp;&nbsp;{{-- 最后回复：2014-12-08 --}}
+                        贴主：{{$value->name}}&nbsp;{{$value->created_at}}&nbsp;&nbsp;&nbsp;&nbsp
                     </p>
 
                 </div>
-                <div class="count">
-                    <p>
-                        回复<br /><span>41</span>
-                    </p>
-                    <p>
-                        浏览<br /><span>896</span>
-                    </p>
-                </div>
+{{--                <div class="count">--}}
+{{--                    <p>--}}
+{{--                        回复<br /><span>41</span>--}}
+{{--                    </p>--}}
+{{--                    <p>--}}
+{{--                        浏览<br /><span>896</span>--}}
+{{--                    </p>--}}
+{{--                </div>--}}
                 <div style="clear:both;"></div>
             </li>
             @empty
